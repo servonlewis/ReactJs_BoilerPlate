@@ -33,6 +33,8 @@ class App extends Component {
 } // end App
 
 const mapStateToProps = state => {
-  return { ...state }
+  return {
+    me: state.appReducer.me
+  }
 }
 export default connect(mapStateToProps)(App)
