@@ -17,3 +17,10 @@ config: {
 },
 endpoint: 'IPADDRESS:4000'
 }
+
+Dont Forget to be Functional!
+
+const test =  (fn,fns) => (...args) => fn(fns(...args))
+const otherfunc = (...data) => data.reduce((x,y) => x * y , 1)
+
+test(console.log,otherfunc)(6,5,20,1) //600
