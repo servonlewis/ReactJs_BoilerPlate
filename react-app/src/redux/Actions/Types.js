@@ -1,7 +1,8 @@
-import keyMirror from 'keymirror'
+import keyMirror from "keymirror";
 
 const types = keyMirror({
-    TEMPLATE_TEST: null,
-}) // end types
+  TEMPLATE_TEST: null,
+  SOMEDISPATCH: null
+}); // end types
 
-export default types
+export default types;

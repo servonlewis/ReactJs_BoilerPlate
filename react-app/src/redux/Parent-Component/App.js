@@ -1,40 +1,32 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { connect } from 'react-redux'
-import axios from 'axios'
-import * as actions from '../Actions/actions'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../Actions/actions";
+import { FirstChild } from "../Child-Components/Child";
 
 class App extends Component {
-  componentDidMount (props) {
-    this.props.dispatch(actions.SampleFunction('some-data'))
+  componentDidMount(props) {
+    this.props.dispatch(actions.SampleFunction("some-data"));
   }
 
-  render () {
+  giveMeData = data => data;
+
+  render() {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code> src / App.js </code> and save to reload.{' '}
-          </p>{' '}
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React{' '}
-          </a>{' '}
-        </header>{' '}
+      <div className="App">
+        <FirstChild
+          {...this.props}
+          giveMeData={this.giveMeData}
+          dispatch={this.props.dispatch}
+        />
       </div>
-    ) // end Return
+    ); // end Return
   } // end Render
 } // end App
 
 const mapStateToProps = state => {
   return {
-    me: state.appReducer.me
-  }
-}
-export default connect(mapStateToProps)(App)
+    me: state.appReducer.me,
+    event: state.appReducer.event
+  };
+};
+export default connect(mapStateToProps)(App);

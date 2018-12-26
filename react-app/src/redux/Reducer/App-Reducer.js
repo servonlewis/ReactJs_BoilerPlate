@@ -1,8 +1,9 @@
-import types from '../Actions/Types'
+import types from "../Actions/Types";
 
 const defaultState = {
-  me: 'test'
-}
+  me: "test",
+  event: ""
+};
 
 const appReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -10,12 +11,16 @@ const appReducer = (state = defaultState, action) => {
       return {
         ...state,
         data: action.data.data
-      } // end return
-
+      }; // end return
+    case types.SOMEDISPATCH:
+      return {
+        ...state,
+        data: action.data.event
+      };
     default:
-      return { ...state }
-      break
+      return { ...state };
+      break;
   } // end switch
-} // end reducer
+}; // end reducer
 
-export default appReducer
+export default appReducer;

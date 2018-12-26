@@ -1,10 +1,19 @@
-import types from '../Actions/Types'
+import types from "../Actions/Types";
 
 export const SampleFunction = data => {
-    return {
-        type: types.TEMPLATE_TEST,
-        data: {
-            data
-        }
+  return {
+    type: types.TEMPLATE_TEST,
+    data: {
+      data
     }
-} // end Sample
+  };
+}; // end Sample
+
+export const someDispatch = event => dispatch => {
+  dispatch({
+    type: types.SOMEDISPATCH,
+    data: {
+      event
+    }
+  });
+};
