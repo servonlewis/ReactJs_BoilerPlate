@@ -2,7 +2,14 @@ import types from "../Actions/Types";
 
 const defaultState = {
   me: "test",
-  event: ""
+  event: "",
+  config: {
+    "force new connection": true,
+    reconnectionAttempts: "Infinity",
+    timeout: 10000,
+    transports: ["websocket"]
+  },
+  endpoint: "IPADDRESS:4000"
 };
 
 const appReducer = (state = defaultState, action) => {
